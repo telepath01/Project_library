@@ -9,11 +9,18 @@ function Book(title, author, pages, read) {
     (this.read = read);
 }
 
-function addBookToLibrary() {
-  let bookName = String(prompt("What is the book name?"));
-  let bookAuthor = prompt("Who is the Author?");
-  let bookPages = prompt("How many pages?");
-  let bookRead = prompt("Did you read it? True or false");
-  console.log(bookName, bookAuthor, bookPages, bookRead);
+function addBookToLibrary() {}
+
+function bookInput(bookTitle) {
+  let i = 0;
+  bookTitle = "";
+  let bookAuthor = "";
+  let bookPages = "";
+  let bookRead = "";
+  for (i = 0; i >= bookTitle.length; i = 0) {
+    bookTitle = prompt("Book Title");
+  }
+  return bookTitle;
+  console.log(bookTitle);
 }
-addBookToLibrary();
+bookInput();
