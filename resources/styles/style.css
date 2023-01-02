@@ -1,25 +1,46 @@
-body {
-  font-family: sans-serif;
-}
+/* Presets for the body
 
-.library-container {
+*/
+body {
   border: 1px solid black;
+  font-family: sans-serif;
+  height: 80vh;
+  width: 70vw;
+  padding: 0;
+  margin: 0;
+}
+/* Presets for the library container
+
+*/
+.library-container {
   display: grid;
-  grid-template-columns: 10vw 1fr;
-  grid-template-rows: 10vh 1fr;
+  background-color: aqua;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 15% 1fr;
   grid-template-areas:
-    "header header"
+    "heading heading"
     "sidebar main";
 }
+
+/* Styles for the heading element of the html
+
+*/
 .library-heading {
-  grid-area: header;
-  background-color: aqua;
+  grid-area: heading;
 }
+
+/* Styles for the sidebar elements of the html
+
+*/
 .library-sidebar {
   grid-area: sidebar;
-  background-color: cadetblue;
 }
+
+/* Styles for the main elements of the html
+
+*/
 .library-main {
   grid-area: main;
-  background-color: cornflowerblue;
 }
