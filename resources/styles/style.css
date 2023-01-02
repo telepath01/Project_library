@@ -9,15 +9,28 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/* presets for the form container (this form will be hidden from the user until it is activated to add a book
+
+*/
+.book-form-container {
+  justify-content: center;
+  border: 1px solid red;
+  height: 70%;
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
 /* Presets for the library container
 
 */
 .library-container {
-  display: grid;
-  background-color: aqua;
+  /* Change back to grid after completing form container!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+  display: none;
+  /* background-color: aqua; */
   height: 100%;
   width: 100%;
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 10.5% 1fr;
   grid-template-rows: 15% 1fr;
   grid-template-areas:
     "heading heading"
@@ -29,25 +42,80 @@ body {
 */
 .library-heading {
   display: grid;
-  background-color: rgb(255, 181, 84);
+  align-items: center;
+  align-content: center;
+  background-color: #c47501;
   grid-area: heading;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: 100%;
 }
-
+.heading-background {
+  display: grid;
+  grid-template-rows: 1fr;
+}
 .bg-image {
-  height: 5.8em;
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  width: 70%;
+}
+.heading {
+  margin-left: 32.5%;
+  font-size: 3.5rem;
 }
 
 /* Styles for the sidebar elements of the html
 
 */
 .library-sidebar {
+  background-color: rgb(63, 63, 255);
+  display: grid;
+  align-items: center;
+  justify-content: center;
   grid-area: sidebar;
+}
+.add-book {
+  background-color: rgb(158, 158, 160);
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+.book-img {
+  width: 4em;
 }
 
 /* Styles for the main elements of the html
 
 */
 .library-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 1fr;
   grid-area: main;
+  grid-template-areas:
+    "main-heading"
+    "main-books";
+}
+.main-heading-container {
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  border-radius: 2rem;
+  margin-left: 38.5%;
+  background-color: rgb(175, 175, 255);
+  border-bottom: 3px solid black;
+  grid-area: main-heading;
+  width: fit-content;
+  height: fit-content;
+}
+.main-heading {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.book-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-area: main-books;
 }
