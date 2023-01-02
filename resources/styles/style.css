@@ -28,7 +28,14 @@ body {
 
 */
 .library-heading {
+  display: grid;
+  background-color: rgb(255, 181, 84);
   grid-area: heading;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.bg-image {
+  height: 5.8em;
 }
 
 /* Styles for the sidebar elements of the html
