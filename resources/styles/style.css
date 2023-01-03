@@ -2,7 +2,7 @@
 
 */
 body {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   font-family: sans-serif;
   height: 80vh;
   width: 70vw;
@@ -14,19 +14,76 @@ body {
 
 */
 .book-form-container {
+  position: absolute;
+  background-color: rgb(89, 89, 255);
+  display: none;
   justify-content: center;
   border: 1px solid red;
   height: 70%;
-  width: 70%;
+  width: 50%;
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 2%;
+  grid-template-columns: 70%;
+  z-index: 1;
+}
+.book-form {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "form-title"
+    "form-book"
+    "form-read";
+}
+
+.form-heading-container {
+  grid-area: form-title;
+}
+
+.form-heading {
+  font-size: 2rem;
+}
+.form-required {
+  font-style: italic;
+}
+.input-start {
+  font-weight: bold;
+}
+.input {
+  grid-area: form-book;
+}
+#title {
+  width: 50%;
+}
+#author {
+  width: 46.8%;
+}
+#pages {
+  width: 8%;
+}
+
+.read {
+  grid-area: form-read;
+}
+.read-start {
+  font-weight: bold;
+}
+.submit-btn {
+  padding: 5px;
+  width: 6em;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 /* Presets for the library container
 
 */
 .library-container {
   /* Change back to grid after completing form container!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-  display: none;
+  display: grid;
+  position: relative;
   /* background-color: aqua; */
   height: 100%;
   width: 100%;
@@ -90,7 +147,7 @@ body {
 .library-main {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 20% 1fr;
+  grid-template-rows: 10% 90%;
   grid-area: main;
   grid-template-areas:
     "main-heading"
@@ -101,21 +158,43 @@ body {
   align-content: center;
   align-self: center;
   border-radius: 2rem;
-  margin-left: 38.5%;
-  background-color: rgb(175, 175, 255);
-  border-bottom: 3px solid black;
+  margin-left: 36%;
   grid-area: main-heading;
-  width: fit-content;
-  height: fit-content;
 }
 .main-heading {
-  font-size: 2rem;
+  position: relative;
+  font-size: 2.5rem;
   margin: 1rem;
 }
 
 .book-container {
+  margin-left: 1rem;
   display: grid;
+  gap: 0.5em;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
   grid-area: main-books;
+}
+
+.book-block {
+  display: grid;
+  border-radius: 1rem;
+  border: 2px solid blue;
+  width: 90%;
+  height: 50%;
+  background-color: rgb(151, 151, 151);
+}
+
+.block-img {
+  height: 1.5rem;
+}
+.delete,
+.edit {
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  margin-left: 6rem;
+  background-color: blue;
+  height: 2rem;
+  width: fit-content;
+  border: none;
 }

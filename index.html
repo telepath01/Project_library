@@ -9,7 +9,69 @@
     <title>Small Library App</title>
   </head>
   <body>
-    <div class="book-form-container"></div>
+    <div class="book-form-container">
+      <form class="book-form">
+        <div class="form-heading-container">
+          <h2 class="form-heading">Fill To Add Book</h2>
+          <p class="form-required">All fields are required</p>
+        </div>
+        <section class="input">
+          <fieldset class="input-start">
+            <legend class="input-legend">Book Information</legend>
+            <div class="book-title">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                name="book-title"
+                placeholder="The Book"
+                required
+              />
+            </div>
+            <div class="book-author">
+              <label for="author">Author</label>
+              <input
+                type="text"
+                id="author"
+                name="book-author"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="book-pages">
+              <label for="pages">Pages</label>
+              <input
+                type="number"
+                id="pages"
+                name="book-pages"
+                placeholder="000"
+                required
+              />
+            </div>
+          </fieldset>
+        </section>
+        <section class="read">
+          <fieldset class="read-start">
+            <legend class="read-legend">Have you read the book</legend>
+            <div class="read-container">
+              <label for="yes" class="read-yes"
+                >Yes<input
+                  type="radio"
+                  id="yes"
+                  name="read"
+                  value="true"
+                  required
+              /></label>
+              <label for="no" class="read-no"
+                >No
+                <input type="radio" id="no" name="read" value="false" required
+              /></label>
+            </div>
+          </fieldset>
+          <button class="submit-btn">Add</button>
+        </section>
+      </form>
+    </div>
     <!-- The library container starts below
     
     -->
@@ -41,7 +103,22 @@
         <div class="main-heading-container">
           <h3 class="main-heading">Book Collection</h3>
         </div>
-        <div class="book-container">!Books!</div>
+        <div class="book-container" id="book-main">
+          <!-- Test dives used to chheck site ensure you delet these elements -->
+          <div class="book-block">
+            <h4 class="book-number">Book1</h4>
+            <button class="delete">
+              <img class="block-img" src="/resources/images/erase.png" />
+            </button>
+            <p class="info">Title</p>
+            <p class="info">Author</p>
+            <p class="info">Pages</p>
+            <p class="info">read</p>
+            <button class="edit">
+              <img class="block-img" src="/resources/images/pencil.png" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
