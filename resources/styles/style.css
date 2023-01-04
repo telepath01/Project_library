@@ -178,11 +178,40 @@ body {
 
 .book-block {
   display: grid;
+  padding: 3px;
   border-radius: 1rem;
   border: 2px solid blue;
   width: 90%;
   height: 50%;
   background-color: rgb(151, 151, 151);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "card-body"
+    "card-button";
+}
+.card-body {
+  grid-area: card-body;
+}
+
+.book-title {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  font-size: 1.5rem;
+}
+
+.book-author,
+.book-pages,
+.book-read {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.card-buttons {
+  grid-area: card-button;
+  display: grid;
+  width: 30%;
+  align-content: center;
+  grid-template-columns: repeat(2, 10em);
 }
 
 .block-img {
@@ -190,9 +219,9 @@ body {
 }
 .delete,
 .edit {
+  cursor: pointer;
+  margin-left: 5rem;
   border-radius: 3px;
-  margin-top: 0.5rem;
-  margin-left: 6rem;
   background-color: blue;
   height: 2rem;
   width: fit-content;
