@@ -4,7 +4,7 @@
 body {
   /* border: 1px solid black; */
   font-family: sans-serif;
-  height: 80vh;
+
   width: 70vw;
   padding: 0;
   margin: 0;
@@ -85,7 +85,7 @@ body {
   display: grid;
   position: relative;
   /* background-color: aqua; */
-  height: 100%;
+
   width: 100%;
   grid-template-columns: 10.5% 1fr;
   grid-template-rows: 15% 1fr;
@@ -182,7 +182,7 @@ body {
   border-radius: 1rem;
   border: 2px solid blue;
   width: 90%;
-  height: 50%;
+  height: 70%;
   background-color: rgb(151, 151, 151);
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas:

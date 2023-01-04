@@ -10,9 +10,9 @@ const readInputYes = document.getElementById("yes");
 const readInputNo = document.getElementById("no");
 const submitBtn = document.querySelector(".submit-btn");
 const bookParent = document.getElementById("book-main");
-
+const deleteButton = document.querySelector(".delete");
 // Element creation
-let deleteButtons;
+// let deleteButtons;
 // Global Variables
 const editImage = "resources/images/pencil.png";
 const deleteImage = "resources/images/erase.png";
@@ -32,14 +32,19 @@ function Book(title, author, pages, read) {
 // Fucntions
 function vallueReset() {
   titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+  readInputNo.checked = false;
+  readInputYes.checked = false;
 }
 
 function checkRead() {
   if (readInputNo.checked) {
-    read = "No";
+    read = String("No");
   } else if (readInputYes.checked) {
-    read = "Yes";
+    read = String("Yes");
   }
+  return read;
 }
 
 function creatBookSections(el, content, className) {
@@ -55,10 +60,12 @@ function createImage(image) {
   return buttonImage;
 }
 
-function createButtonSection(el, content, className) {
+function createButtonSection(el, content, className, index) {
   const creatButton = document.createElement(el);
   creatButton.appendChild(content);
   creatButton.setAttribute("class", className);
+  index = index;
+
   return creatButton;
 }
 
@@ -93,13 +100,26 @@ function createBook(book, index) {
   createDivButton.appendChild(
     createButtonSection("button", createImage(editImage), "edit")
   );
+  createDivButton.querySelector(".edit").addEventListener("click", () => {
+    if (myLibrary[index].read === "Yes") {
+      myLibrary[index].read = "No";
+    } else if (myLibrary[index].read === "No") {
+      myLibrary[index].read = "Yes";
+    }
+    bookRender();
+  });
+
   createDivButton.appendChild(
-    createButtonSection("button", createImage(deleteImage), "delete")
+    createButtonSection("button", createImage(deleteImage), "delete", index)
   );
-  deleteButtons = document.querySelectorAll(".delete");
+  createDivButton.querySelector(".delete").addEventListener("click", () => {
+    myLibrary.splice(index, 1);
+    bookRender();
+  });
 }
 
 function bookRender() {
+  bookParent.textContent = "";
   myLibrary.map((book, index) => {
     createBook(book, index);
   });
@@ -117,12 +137,18 @@ bookAddBtn.addEventListener("click", () => {
 
 submitBtn.addEventListener("click", () => {
   checkRead();
-  book = new Book(titleInput.value, authorInput.value, pagesInput.value, read);
+  book = new Book(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    String(read)
+  );
   myLibrary.push(book);
   // bookRender();
   // addBook();
-  book = {};
   vallueReset();
   formContainer.style.display = "none";
   event.preventDefault();
+  bookRender();
 });
+bookRender();
